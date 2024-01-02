@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Gestion des salariés</title>
+    <link rel="stylesheet" href="/static/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/font-awesome.css"> <!-- Corrected path -->
+</head>
+<body>
+<!--  definition du head -->
+<div th:fragment="head"></div>
+
+
+<!--  definition de la barre de recherche  -->
+<div th:fragment="search-bar">
+    <form class="form-inline my-2 my-lg-0" role="search" action="http://localhost:8080/salaries" method="GET">
+        <div class="form-group">
+            <input name="nom" class="form-control" placeholder="Rechercher un nom" type="text">
+        </div>
+        <button type="submit" class="btn btn-outline-success ml-2 my-2 my-sm-0">Rechercher</button>
+    </form>
+</div>
+</body>
+</html>

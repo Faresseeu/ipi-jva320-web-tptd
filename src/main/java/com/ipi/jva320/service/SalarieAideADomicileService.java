@@ -30,6 +30,8 @@ public class SalarieAideADomicileService {
     @Autowired
     private SalarieAideADomicileRepository salarieAideADomicileRepository;
 
+    private String id;
+
     public SalarieAideADomicileService() {
     }
 

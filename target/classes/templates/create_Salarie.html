@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common :: head"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>Gestion des salariés</title>
+    <link rel="stylesheet" href="/static/bootstrap.min.css">
+    <link rel="stylesheet" href="./static/font-awesome.css">
+</head>
+<body>
+
+<div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="http://localhost:8080/">Gestion des salariés</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li><a href="http://localhost:8080/salaries?page=0&amp;size=10&amp;sortProperty=nom&amp;sortDirection=ASC" class="nav-link">Liste des salariés <span class="badge badge-primary" th:text = "${nbSalarie}">26</span></a></li>
+            </ul>
+
+        </div>
+
+    </nav>
+</div>
+
+<div class="container">
+    <div text="#{msg.salarie}"></div><!-- TODO better messages example -->
+
+    <h2>Ajout d'un salarié</h2>
+
+    <form id="saveForm" action="http://localhost:8080/salaries/aide/10" method="post" class="row" th:object="${newSalarie}" >
+
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label class="form-control-label" for="id">ID</label>
+                <input type="text" value="10" class="form-control" name="id" id="id" disabled="true">
+
+                <label class="form-control-label" for="nom">Nom</label>
+                <input type="text" class="form-control" th:name="nom" id="nom" required>
+
+                <label class="form-control-label" for="nom">moisEnCours</label>
+                <input type="date" class="form-control" th:name="moisEnCours" id="moisEnCours" required>
+
+                <label class="form-control-label" for="nom">moisDebutContrat</label>
+                <input type="date"  class="form-control" th:name="moisDebutContrat" id="moisDebutContrat" required>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="form-group">
+
+                <div>
+                    <label class="form-control-label" for="nom">joursTravaillesAnneeN</label>
+                    <div class="input-group">
+                        <input type="number" step="0.5"  class="form-control" th:name="joursTravaillesAnneeN" id="joursTravaillesAnneeN" min="0" max="500" required>
+                        <div class="input-group-append">
+                            <span class="input-group-text">j</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="form-control-label" for="nom">congesPayesAcquisAnneeN</label>
+                    <div class="input-group">
+                        <input type="number" step="0.5"  class="form-control" th:name="congesPayesAcquisAnneeN" id="congesPayesAcquisAnneeN"min="0" max="500" required>
+                        <div class="input-group-append">
+                            <span class="input-group-text">j</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-lg-6">
+            <div>
+                <label class="form-control-label" for="nom">joursTravaillesAnneeNMoins1</label>
+                <div class="input-group">
+                    <input type="number" step="0.5" class="form-control" th:name="joursTravaillesAnneeNMoins1" id="joursTravaillesAnneeNMoins1" min="0" max="500" required>
+                    <div class="input-group-append">
+                        <span class="input-group-text">j</span>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <label class="form-control-label" for="nom">congesPayesAcquisAnneeNMoins1</label>
+                <div class="input-group">
+                    <input type="number" step="0.5"  class="form-control" th:name="congesPayesAcquisAnneeNMoins1" id="congesPayesAcquisAnneeNMoins1" min="0" max="500" required>
+                    <div class="input-group-append">
+                        <span class="input-group-text">j</span>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <label class="form-control-label" for="nom">congesPayesPrisAnneeNMoins1</label>
+                <div class="input-group">
+                    <input type="number" step="0.5" class="form-control" th:name="congesPayesPrisAnneeNMoins1" id="congesPayesPrisAnneeNMoins1" min="0" max="500" required>
+                    <div class="input-group-append">
+                        <span class="input-group-text">j</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </form>
+
+
+    <div class="row mt-2">
+        <div class="col-lg-6">
+            <input form="saveForm" class="btn btn-primary" type="submit" value="Enregistrer">
+            <a href="/salaries/10/delete" class="btn btn-danger">Supprimer</a>
+        </div>
+    </div>
+</div>
+
+
+</body></html>

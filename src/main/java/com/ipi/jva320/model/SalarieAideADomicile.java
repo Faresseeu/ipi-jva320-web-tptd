@@ -1,5 +1,7 @@
 package com.ipi.jva320.model;
 
+import org.springframework.lang.NonNull;
+
 import javax.persistence.*;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
@@ -18,6 +20,7 @@ public class SalarieAideADomicile {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @NonNull
     private String nom;
 
     public static List<DayOfWeek> joursHabituellementTravailles = new ArrayList<DayOfWeek>();
@@ -30,18 +33,24 @@ public class SalarieAideADomicile {
         joursHabituellementTravailles.add(DayOfWeek.FRIDAY);
     }
 
+    @NonNull
     private LocalDate moisEnCours;
+    @NonNull
     private LocalDate moisDebutContrat;
-
+    @NonNull
     private double joursTravaillesAnneeN= 0;
+    @NonNull
     private double congesPayesAcquisAnneeN= 0;
 
     /** en année N sur l'acquis N-1 */
     @Convert(converter = LinkedHashSetStringConverter.class)
     @Column
     private LinkedHashSet<LocalDate> congesPayesPris = new LinkedHashSet<LocalDate>();
+    @NonNull
     private double joursTravaillesAnneeNMoins1= 0;
+    @NonNull
     private double congesPayesAcquisAnneeNMoins1= 0;
+    @NonNull
     private double congesPayesPrisAnneeNMoins1= 0;
 
     public SalarieAideADomicile() {
